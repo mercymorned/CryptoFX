@@ -53,35 +53,26 @@ public class Controller implements Initializable {
     @FXML
     private TextArea resultText;
     
-    //encodes the Caesar Cipher, allows user to select int to shift
-    public static StringBuffer caesarEncrypt(String caesarInput, String textCaesarKey) {
-    	StringBuffer caesarResult = new StringBuffer();
-    	for (int i = 0; i < caesarInput.length(); i++) {
-    		if(Character.isUpperCase(caesarInput.charAt(i))) {
-    			char ch = (char) (((int) caesarInput.charAt(i) + Integer.parseInt(textCaesarKey) -65) %26 +65);
-    			caesarResult.append(ch);
-    		} else {
-    			char ch = (char) (((int) caesarInput.charAt(i) + Integer.parseInt(textCaesarKey) -97) % 26 + 97);
-    			caesarResult.append(ch);
-    		}
-    	}
-    	
-    	return caesarResult;
+    public static String caesarEncrypt(String caesarInput, String textCaesarKey) {
+    	int caesarKey = Integer.parseInt(textCaesarKey); 
+    	return applyShift(caesarInput, caesarKey);
     }
     
-    //decodes the Caesar Cipher, allows user to select int to shift
     public static String caesarDecrypt(String caesarEncodeResult, String textCaesarKey) {
-    	String caesarPlainText = "";
-    	for (int i = 0; i < caesarEncodeResult.length(); i++) {
-    		char plainChar = caesarEncodeResult.charAt(i);
-    		int charIndex = alphabet.indexOf(plainChar);
-    		int caesarKey = Integer.parseInt(textCaesarKey);
-    		int newCharIndex = (charIndex - caesarKey) % 26;
-    		char cipherChar = alphabet.charAt(newCharIndex);
-    		
-    		caesarPlainText += cipherChar;
-    	}
-    	return caesarPlainText;
+    	int caesarKey = Integer.parseInt(textCaesarKey); 
+    	return applyShift(caesarEncodeResult, 26 - caesarKey);
+    }
+    
+    private static String applyShift(String message, int caesarKey) {
+    	char[] chars = message.toCharArray();
+    	for (int i = 0; i < chars.length; i++) {
+    		char c = chars[i];
+    		if (c >= 'A' && c <= 'Z')
+    			chars[i] = (char) ((c - 'A' +caesarKey) % 26 + 'A');
+    		else if (c >= 'a' && c <= 'z')
+    			chars[i] = (char) ((c - 'a' + caesarKey) % 26 + 'a');
+    	} 	
+    	return new String(chars);
     }
     
     @FXML
@@ -107,8 +98,6 @@ public class Controller implements Initializable {
     	} else {
     		if (radioCC.isSelected()) {
     			String caesarInput = enterText.getText().toString();
-    			caesarInput = caesarInput.toLowerCase();
-    			caesarInput = caesarInput.replaceAll("\\s", "");
     			String textCaesarKey = enterKey.getText().toString();
     			String caesarCipherText = caesarEncrypt(caesarInput, textCaesarKey).toString();
     			resultText.setText(caesarCipherText);
@@ -153,8 +142,6 @@ public class Controller implements Initializable {
     		if (radioCC.isSelected()) {
     			
     			String caesarEncodeResult = enterText.getText().toString();
-    			caesarEncodeResult = caesarEncodeResult.toLowerCase();
-    			caesarEncodeResult = caesarEncodeResult.replaceAll("\\s", "");
     			String textCaesarKey = enterKey.getText().toString();
     			String caesarCipherPlainText = caesarDecrypt(caesarEncodeResult, textCaesarKey).toString();
     			resultText.setText(caesarCipherPlainText);
