@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1100.0" style="-fx-background-color: #311095;" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.Controller">
+   <children>
+      <ImageView fitHeight="700.0" fitWidth="1250.0" layoutX="4.0" layoutY="30.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@CyberFXBG.png" />
+         </image>
+      </ImageView>
+      <Label layoutX="442.0" layoutY="46.0" text="Text Encryption" textFill="#fcfbff">
+         <font>
+            <Font name="Menlo Regular" size="64.0" />
+         </font>
+      </Label>
+      <TextField fx:id="enterText" layoutX="449.0" layoutY="150.0" prefHeight="54.0" prefWidth="569.0" promptText="Enter text to encrypt or decrypt">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextField fx:id="enterKey" layoutX="451.0" layoutY="226.0" prefHeight="54.0" prefWidth="569.0" promptText="Enter encryption key">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextField>
+      <TextArea fx:id="resultText" layoutX="451.0" layoutY="351.0" prefHeight="165.0" prefWidth="569.0" promptText="Result" wrapText="true">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </TextArea>
+      <Button fx:id="buttonEncrypt" layoutX="483.0" layoutY="538.0" mnemonicParsing="false" onMouseClicked="#buttonEncrypt" prefHeight="20.0" prefWidth="236.0" style="-fx-background-color: #dca2f7; -fx-background-radius: 50px;" text="Encrypt" textFill="#6449ec">
+         <font>
+            <Font name="Menlo Regular" size="36.0" />
+         </font>
+      </Button>
+      <Button fx:id="buttonDecrypt" layoutX="755.0" layoutY="538.0" mnemonicParsing="false" onMouseClicked="#buttonDecrypt" prefHeight="20.0" prefWidth="236.0" style="-fx-background-color: #dca2f7; -fx-background-radius: 50px;" text="Decrypt" textFill="#6449ec">
+         <font>
+            <Font name="Menlo Regular" size="36.0" />
+         </font>
+      </Button>
+      <RadioButton fx:id="radioCC" layoutX="73.0" layoutY="412.0" mnemonicParsing="false" onMouseClicked="#radioCC" text="Caesar Cipher" textFill="#39f0ec">
+         <font>
+            <Font name="Menlo Regular" size="24.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioAES" layoutX="73.0" layoutY="466.0" mnemonicParsing="false" onMouseClicked="#radioAES" text="AES" textFill="#39f0ec">
+         <font>
+            <Font name="Menlo Regular" size="24.0" />
+         </font>
+      </RadioButton>
+      <RadioButton fx:id="radioDES" layoutX="73.0" layoutY="516.0" mnemonicParsing="false" onMouseClicked="#radioDES" text="DES" textFill="#39f0ec">
+         <font>
+            <Font name="Menlo Regular" size="24.0" />
+         </font>
+      </RadioButton>
+      <Label fx:id="instructionCC" layoutX="451.0" layoutY="292.0" text="Caesar Cipher: key must be a number between 1 and 25" textFill="#fcfbff">
+         <font>
+            <Font name="Menlo Regular" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="instructionAES" layoutX="451.0" layoutY="310.0" text="AES: key must be at least 8 characters" textFill="#fcfbff">
+         <font>
+            <Font name="Menlo Regular" size="14.0" />
+         </font>
+      </Label>
+      <Label fx:id="instructionDES" layoutX="451.0" layoutY="328.0" text="DES: key must be at least 8 characters" textFill="#fcfbff">
+         <font>
+            <Font name="Menlo Regular" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
