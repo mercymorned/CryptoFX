@@ -62,7 +62,7 @@
             <Font name="Menlo Regular" size="24.0" />
          </font>
       </RadioButton>
-      <Label fx:id="instructionCC" layoutX="451.0" layoutY="287.0" text="Caesar Cipher: key must be an integer (such as 1, 20, 55)" textFill="#fcfbff">
+      <Label fx:id="instructionCC" layoutX="451.0" layoutY="287.0" text="Caesar Cipher: key must be a whole number between 1 and 25" textFill="#fcfbff">
          <font>
             <Font name="Menlo Regular" size="14.0" />
          </font>

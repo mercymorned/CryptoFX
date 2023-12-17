@@ -218,7 +218,15 @@ public class Controller implements Initializable {
                     alert.setHeaderText(null);
                     alert.setTitle("Encryption Error");
                     alert.showAndWait();
-                } else {
+                } else if (Integer.parseInt(textCaesarKey) >= 26) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Please enter a number between 1 and 25");
+                    alert.setHeaderText(null);
+                    alert.setTitle("Encryption Error");
+                    alert.showAndWait();
+                }
+                
+                else {
                 	caesarEncrypt(caesarInput, textCaesarKey).toString();
                 }
 				String caesarCipherText = caesarEncrypt(caesarInput, textCaesarKey).toString();
