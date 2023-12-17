@@ -22,8 +22,8 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			Parent root = FXMLLoader.load(getClass().getResource("CryptoFX.fxml"));
-			Scene scene = new Scene(root, 1100, 700);
+			Parent root = FXMLLoader.load(getClass().getResource("CryptoFX_Login.fxml"));
+			Scene scene = new Scene(root, 718, 700);
 			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
 
 			primaryStage.setTitle("CryptoFX Cryptography App");
