@@ -62,17 +62,17 @@
             <Font name="Menlo Regular" size="24.0" />
          </font>
       </RadioButton>
-      <Label fx:id="instructionCC" layoutX="451.0" layoutY="292.0" text="Caesar Cipher: key must be a number between 1 and 25" textFill="#fcfbff">
+      <Label fx:id="instructionCC" layoutX="451.0" layoutY="287.0" text="Caesar Cipher: key must be an integer (such as 1, 20, 55)" textFill="#fcfbff">
          <font>
             <Font name="Menlo Regular" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="instructionAES" layoutX="451.0" layoutY="310.0" text="AES: key must be at least 8 characters" textFill="#fcfbff">
+      <Label fx:id="instructionAES" layoutX="451.0" layoutY="307.0" text="AES and DES: key may contain numbers, letters, and special characters" textFill="#fcfbff">
          <font>
             <Font name="Menlo Regular" size="14.0" />
          </font>
       </Label>
-      <Label fx:id="instructionDES" layoutX="451.0" layoutY="328.0" text="DES: key must be at least 8 characters" textFill="#fcfbff">
+      <Label fx:id="instructionAES1" layoutX="451.0" layoutY="329.0" text="DES: key must be at least 24 characters long" textFill="#fcfbff">
          <font>
             <Font name="Menlo Regular" size="14.0" />
          </font>
