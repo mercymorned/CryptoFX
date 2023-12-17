@@ -77,8 +77,17 @@ public class Controller implements Initializable {
 	private TextArea resultText;
 
 	public static String caesarEncrypt(String caesarInput, String textCaesarKey) {
-		int caesarKey = stringToInt(textCaesarKey);
+		int caesarKey = Integer.parseInt(textCaesarKey);
+        if (isInt(textCaesarKey) != true) {
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setContentText("Please use only numbers for a Caesar Cipher key");
+            alert.setHeaderText(null);
+            alert.setTitle("Encryption Error");
+            alert.showAndWait();
+        } else {
 		return applyShift(caesarInput, caesarKey);
+        }
+        return applyShift(caesarInput, caesarKey);
 	}
 
 	public static String caesarDecrypt(String caesarEncodeResult, String textCaesarKey) {
@@ -97,17 +106,16 @@ public class Controller implements Initializable {
 		}
 		return new String(chars);
 	}
-
-	//attempt to catch non-int strings for caesar ciper but does not catch
-	public static int stringToInt(String textCaesarKey) {
-		try {
-			int caesarKey = Integer.parseInt(textCaesarKey);
-			System.out.println(textCaesarKey + " is a valid int");
-		} catch (NumberFormatException e) {
-			System.out.println(textCaesarKey + " is not a valid int");
-		}
-			final int caesarKey = Integer.parseInt(textCaesarKey);
-			return caesarKey;
+	
+	public static boolean isInt(String s) {
+	    try { 
+	        Integer.parseInt(s); 
+	    } catch(NumberFormatException e) { 
+	        return false; 
+	    } catch(NullPointerException e) {
+	        return false;
+	    }
+	    return true;
 	}
 	
 	public static String aesEncrypt(String inputAES, String aesKey) {
@@ -204,6 +212,15 @@ public class Controller implements Initializable {
 			if (radioCC.isSelected()) {
 				String caesarInput = enterText.getText().toString();
 				String textCaesarKey = enterKey.getText().toString();
+                if (isInt(textCaesarKey) != true) {
+                    Alert alert = new Alert(Alert.AlertType.ERROR);
+                    alert.setContentText("Please use only numbers for a Caesar Cipher key");
+                    alert.setHeaderText(null);
+                    alert.setTitle("Encryption Error");
+                    alert.showAndWait();
+                } else {
+                	caesarEncrypt(caesarInput, textCaesarKey).toString();
+                }
 				String caesarCipherText = caesarEncrypt(caesarInput, textCaesarKey).toString();
 				resultText.setText(caesarCipherText);
 				// confirming in console
